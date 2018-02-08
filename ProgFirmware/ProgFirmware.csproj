@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53D8AACB-1A06-4500-8B0E-95952B2FBFED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProgFirmware</RootNamespace>
+    <AssemblyName>ProgFirmware</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Source\Adapters\AdapterCmdType.cs" />
+    <Compile Include="Source\Adapters\IAdapter.cs" />
+    <Compile Include="Source\Adapters\StLink.cs" />
+    <Compile Include="Source\CLI\Cli.Parser.cs" />
+    <Compile Include="Source\Devices\Device.cs" />
+    <Compile Include="Source\Firmware\Firmware.Consts.cs" />
+    <Compile Include="Source\Firmware\Firmware.Mcu.cs" />
+    <Compile Include="Source\Firmware\Firmware.Mcu.Info.cs" />
+    <Compile Include="Source\Firmware\Firmware.Mcu.Type.cs" />
+    <Compile Include="Source\Helpers\ByteList.cs" />
+    <Compile Include="Source\Helpers\Date.cs" />
+    <Compile Include="Source\Helpers\DeviceTyp.cs" />
+    <Compile Include="Source\Helpers\Dialogs.cs" />
+    <Compile Include="Source\Helpers\Encodings.cs" />
+    <Compile Include="Source\Helpers\Endianess.cs" />
+    <Compile Include="Source\Helpers\Extension\Extension.Buffer.cs" />
+    <Compile Include="Source\Helpers\Extension\Extension.Char.cs" />
+    <Compile Include="Source\Helpers\Extension\Extension.Guid.cs" />
+    <Compile Include="Source\Helpers\Extension\Extension.Integer.cs" />
+    <Compile Include="Source\Helpers\Extension\Extension.Long.cs" />
+    <Compile Include="Source\Helpers\Extension\Extension.Stream.cs" />
+    <Compile Include="Source\Helpers\Extension\Extension.String.cs" />
+    <Compile Include="Source\Helpers\Files.cs" />
+    <Compile Include="Source\Helpers\FileTyp.cs" />
+    <Compile Include="Source\Helpers\IntelHex\IntelHex.cs" />
+    <Compile Include="Source\Helpers\IntelHex\IntelHexRecord.cs" />
+    <Compile Include="Source\Helpers\IntelHex\IntelHexRecordTyp.cs" />
+    <Compile Include="Source\Helpers\IntelHex\IntelHexRegion.cs" />
+    <Compile Include="Source\Helpers\Mem.cs" />
+    <Compile Include="Source\Helpers\PathEx.cs" />
+    <Compile Include="Source\Helpers\Processes.cs" />
+    <Compile Include="Source\MCU\Mcu.cs" />
+    <Compile Include="Source\MCU\Mcu.Type.cs" />
+    <Compile Include="Source\Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Views\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Source\Views\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Source\CLI\Cli.Option.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\Tools\" />
+    <Folder Include="Source\Version\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
